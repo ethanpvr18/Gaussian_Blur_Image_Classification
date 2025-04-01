@@ -1,4 +1,5 @@
 ***Study of Techniques for Optimal Image Classification***
+
 ***Abstract***
 Computer Vision is a discipline of Computer Science which allows media to processed and turned into useful information.  Applications for Computer Vision can be used in image classification to identify cars, people, faces, and various objects.  Computer Vision may also allow images to be altered so useful information can be extracted and placed on to an image directly.  For Computer Vision to be as accurate and efficient as it is, several techniques are to be used.  Techniques such as Neural Networks, Deep Learning, Noise Reduction, Smoothing, Gaussian Blur, Edge Detection, and many others, can enhance images and other forms of media for optimal image classification.
 
@@ -33,4 +34,3 @@ C. Zhao, S. Pan, and W. Wang, “Improved Canny Edge Detection Algorithm for Noi
 “What Are The Applications of Edge Detection?” Accessed: Mar. 30, 2025. [Online]. Available: https://www.plugger.ai/blog/what-are-the-applications-of-edge-detection
 [8]
 J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look Once: Unified, Real-Time Object Detection,” May 09, 2016, arXiv: arXiv:1506.02640. doi: 10.48550/arXiv.1506.02640.
-![image](https://github.com/user-attachments/assets/48033686-7119-4970-9bb4-e30afefdd50b)
