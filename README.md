@@ -20,17 +20,24 @@ The results of this study will produce documentation that highlights the most ef
 
 [1]
 G. T. Shrivakshan, “A Comparison of various Edge Detection Techniques used in Image Processing,” vol. 9, no. 5, 2012.
+
 [2]
 F. Wang and M. Zhang, “Deep Learning-Based Edge Detection Algorithm for Noisy Images,” in Proceedings of the 2023 6th International Conference on Artificial Intelligence and Pattern Recognition, in AIPR ’23. New York, NY, USA: Association for Computing Machinery, Jun. 2024, pp. 465–472. doi: 10.1145/3641584.3641653.
+
 [3]
 L. Team, “Edge Detection Using OpenCV | LearnOpenCV #.” Accessed: Mar. 30, 2025. [Online]. Available: https://learnopencv.com/edge-detection-using-opencv/
+
 [4]
 C. Zhao, S. Pan, and W. Wang, “Improved Canny Edge Detection Algorithm for Noisy Images,” in Proceedings of the 4th International Conference on Artificial Intelligence and Computer Engineering, in ICAICE ’23. New York, NY, USA: Association for Computing Machinery, May 2024, pp. 84–89. doi: 10.1145/3652628.3652642.
+
 [5]
 “OpenCV: Canny Edge Detection.” Accessed: Mar. 31, 2025. [Online]. Available: https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html
+
 [6]
 “OpenCV: Image Gradients.” Accessed: Mar. 31, 2025. [Online]. Available: https://docs.opencv.org/4.x/d5/d0f/tutorial_py_gradients.html
+
 [7]
 “What Are The Applications of Edge Detection?” Accessed: Mar. 30, 2025. [Online]. Available: https://www.plugger.ai/blog/what-are-the-applications-of-edge-detection
+
 [8]
 J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look Once: Unified, Real-Time Object Detection,” May 09, 2016, arXiv: arXiv:1506.02640. doi: 10.48550/arXiv.1506.02640.
