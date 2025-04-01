@@ -1,20 +1,21 @@
-Study of Techniques for Optimal Image Classification
-Abstract
+***Study of Techniques for Optimal Image Classification***
+***Abstract***
 Computer Vision is a discipline of Computer Science which allows media to processed and turned into useful information.  Applications for Computer Vision can be used in image classification to identify cars, people, faces, and various objects.  Computer Vision may also allow images to be altered so useful information can be extracted and placed on to an image directly.  For Computer Vision to be as accurate and efficient as it is, several techniques are to be used.  Techniques such as Neural Networks, Deep Learning, Noise Reduction, Smoothing, Gaussian Blur, Edge Detection, and many others, can enhance images and other forms of media for optimal image classification.
 
-1.	Background and Significance
+***1.	Background and Significance***
 Background:  For Edge detection, a 2D array of an image is constructed showing the magnitude of individual pixels which can be compared to neighboring pixels.  The difference of pixel magnitudes known as a gradient are then applied with operators known as Prewitt, Sobel, Laplacian, Canny operators.  The Prewitt operator is used by directly comparing neighboring points to find edges that are horizontal or vertical.  The Sobel operator compares a center pixel to surrounding pixels.  The Laplacian operator is a combination of the Sobel and Prewitt operators.  Lastly, there is also a more thorough and complex operator known as the Canny operator is more complex and thorough operator that uses thresholds for image edge detection.  
 Significance:  With a way to classify images accurately and efficiently, documentation will be assembled to explain and compare various techniques focusing on speed and accuracy.  The significance of comparing Image classification techniques will allow for tasks to be automated and completed at their highest potential.  Applications of this documentation will allow for the ability to identify what is in an individual surrounding to determine their location for navigation purposes, as well as the ability to learn about the terminology of different types of architecture for educational purposes.  
 
-2.	Methodology
+***2.	Methodology***
 To develop this study, OpenCV will be used as a foundation to read in images, convert them into a working format, process them, and output the resulting classifications and their measurements of efficiency and accuracy.  Specifically, OpenCV will allow the use of the You Only Look Once, or the YOLO algorithm for image classification via a neural network.
 
-3.	Statement of Qualification. 
+***3.	Statement of Qualification***
 This study can be accomplished as I’m a senior Computer Science student with course work in data mining, calculus, and various programming languages, all of which have provided me with the ability to use a foundation of knowledge to efficiently solve problems.
 
-4.	Expected Outcomes
+***4.	Expected Outcomes***
 The results of this study will produce documentation that highlights the most efficient way to classify images, and possible use cases.  To start, an unseen set of images will be classified before and after undergoing edge detection, noise reduction, gaussian blur, smoothing, deep learning, or neural network techniques.  Images will be classified using these techniques, or a combination of them.  This study will observe the accuracy, efficiency, and F1 Score of the classified objects, as well as the time needed for a technique to return results.
-Bibliography
+
+***Bibliography***
 
 [1]
 G. T. Shrivakshan, “A Comparison of various Edge Detection Techniques used in Image Processing,” vol. 9, no. 5, 2012.
