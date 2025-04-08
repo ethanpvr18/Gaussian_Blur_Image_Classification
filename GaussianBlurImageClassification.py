@@ -84,7 +84,7 @@ while True:
 
     cv.imshow('window', modified)
 
-    cv.imwrite(f'i{counter}.jpg', modified)
+    # cv.imwrite(f'i{counter}.jpg', modified)
 
     if first == 0:
         first = len(indices)
@@ -92,10 +92,10 @@ while True:
     kernelSizes.append(blur)
     numClass.append((len(indices)/first)*100)
 
-    print(len(indices))
+    # print(len(indices))
 
     if len(indices) == 0:
-        print(numClass)
+        # print(numClass)
         plt.plot(kernelSizes, numClass)
         plt.xlabel("Kernel Size of Gaussian Blur")
         plt.ylabel("Percent of Objects Classified")
