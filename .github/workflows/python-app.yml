@@ -32,6 +32,18 @@ jobs:
     - name: Install opencv-python
       run: |
         python -m pip install opencv-python
+    - name: Install tensorflow
+      run: |
+        python -m pip install tensorflow  
+    - name: Install Keras
+      run: |
+        python -m pip install Keras  
     - name: Install yolov3
       run: |
         python -m pip install yolov3  
+
+
+
+
+
+        
