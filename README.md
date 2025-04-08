@@ -3,7 +3,7 @@
 ***Abstract***
 Computer Vision is a discipline of Computer Science which allows media to processed and turned into useful information.  Applications for Computer Vision can be used in image classification to identify cars, people, faces, and various objects.  Computer Vision may also allow images to be altered so useful information can be extracted and placed on to an image directly.  For Computer Vision to be as accurate and efficient as it is, several techniques are to be used.  Techniques such as Gaussian Blur can significantly effect the classification of images and other forms of media.
 
-***Origianl Image:***\
+***Original Image:***\
 ![image](https://github.com/user-attachments/assets/e7dd4fa5-4769-4c5c-adc4-a47de966ffdf)\
 \
 ***Image after Gaussian Blur:***\
