@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: darwin
+    runs-on: linux
 
     steps:
     - uses: actions/checkout@v4
@@ -34,13 +34,13 @@ jobs:
         python -m pip install opencv-python
     - name: Install tensorflow==1.14.0
       run: |
-        python -m pip install tensorflow==1.14.0  
+        python -m pip install tensorflow==1.14.0
     - name: Install Keras
       run: |
-        python -m pip install Keras  
-    - name: Install yolov3
+        python -m pip install Keras
+    - name: Install yolov9
       run: |
-        python -m pip install yolov3  
+        python -m pip install yolov9
 
 
 
