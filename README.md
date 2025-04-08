@@ -10,8 +10,7 @@ Computer Vision is a discipline of Computer Science which allows media to proces
 ![image](https://github.com/user-attachments/assets/24ec79c2-bacf-43b9-86f8-8525cbb82756)\
 \
 ***The Kernel Size of Gaussian Blur on Image Classification:***\
-\
-![image](https://github.com/user-attachments/assets/c91edea5-8c25-478a-bf29-7a1c807de25b)\
+![image](https://github.com/user-attachments/assets/60f54ab7-1a26-4f4a-84fb-df9a9a3b10a3)\
 \
 
 
