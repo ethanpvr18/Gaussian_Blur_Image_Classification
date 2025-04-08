@@ -23,6 +23,15 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Install dependencies
+    - name: Install numpy
       run: |
         python -m pip install numpy
+    - name: Install matplotlib
+      run: |
+        python -m pip install matplotlib
+    - name: Install opencv-python
+      run: |
+        python -m pip install opencv-python
+    - name: Install yolov3
+      run: |
+        python -m pip install yolov3  
