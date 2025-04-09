@@ -25,7 +25,11 @@ jobs:
         python-version: "3.9"
     - name: Install Dependencies
       run: |
-        python -m pip install numpy matplotlib opencv-python tensorflow Keras yolov9
+        python -m pip install numpy matplotlib opencv-python tensorflow Keras
+    - name: Download YOLOv3 Weights and Config
+      run: |
+        wget https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg
+        wget https://pjreddie.com/media/files/yolov3.weights
     - name: Gaussian Blur Image Classification
       run: |
         python GaussianBlurImageClassification.py
