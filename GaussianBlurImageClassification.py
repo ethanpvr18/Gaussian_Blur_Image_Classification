@@ -81,18 +81,11 @@ while True:
             cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
             cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
 
-
-    cv.imshow('window', modified)
-
-    # cv.imwrite(f'i{counter}.jpg', modified)
-
     if first == 0:
         first = len(indices)
 
     kernelSizes.append(blur)
     numClass.append((len(indices)/first)*100)
-
-    # print(len(indices))
 
     if len(indices) == 0:
         # print(numClass)
@@ -101,12 +94,8 @@ while True:
         plt.ylabel("Percent of Objects Classified")
         plt.title("Impact of Gaussian Blur on Image Classification")
         plt.savefig(f'plot.pdf')
-        plt.show()
         break
 
     blur += 2
     counter += 1
-
-    cv.destroyAllWindows()
-
 
