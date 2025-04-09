@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -39,7 +39,8 @@ jobs:
         git add plot.pdf
         git add yolov.weights
         git commit -m "Add files"
-        git push https://ethanpvr18:${{ secrets.GH_PAT }}@github.com/ethanpvr18/Gaussian_Blur_Image_Classification.git
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ethanpvr18/Gaussian_Blur_Image_Classification.git
+
         
 
 
