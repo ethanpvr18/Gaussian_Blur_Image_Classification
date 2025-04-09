@@ -13,11 +13,12 @@ counter = 0
 numClass = []
 first = 0
 kernelSizes = []
+images = ['city_street.jpg']
 
-for i in range(1):
+for i in images:
     while True:
         # Load image
-        img = cv.imread('city_street.jpg')
+        img = cv.imread(i)
         modified = cv.GaussianBlur(img, (blur,blur), 0)
     
         # Load YOLO model
@@ -91,12 +92,13 @@ for i in range(1):
         if len(indices) == 0:
             # print(numClass)
             plt.plot(kernelSizes, numClass)
-            plt.xlabel("Kernel Size of Gaussian Blur")
-            plt.ylabel("Percent of Objects Classified")
-            plt.title("Impact of Gaussian Blur on Image Classification")
-            plt.savefig(f'plot.pdf')
+            
             break
     
         blur += 2
         counter += 1
-    
+        
+plt.xlabel("Kernel Size of Gaussian Blur")
+plt.ylabel("Percent of Objects Classified")
+plt.title("Impact of Gaussian Blur on Image Classification")
+plt.savefig(f'plot.pdf')
