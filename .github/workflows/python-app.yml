@@ -34,6 +34,8 @@ jobs:
         python GaussianBlurImageClassification.py
     - name: Add File
       run: |
+        git config --global user.email "ethan.pervere@gmail.com"
+        git config --global user.name "ethanpvr18"
         git add plot.pdf
         git add yolov.weights
         git commit -m "Add files"
