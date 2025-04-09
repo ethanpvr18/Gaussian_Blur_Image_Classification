@@ -26,6 +26,9 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install numpy matplotlib opencv-python tensorflow Keras yolov9
+    - name: Combine Weights
+      run: |
+        cat chunk_* > yolov.weights    
     - name: Gaussian Blur Image Classification
       run: |
         python GaussianBlurImageClassification.py
