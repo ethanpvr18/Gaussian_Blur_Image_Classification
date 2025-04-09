@@ -7,25 +7,24 @@ import os
 import requests
 import matplotlib.pyplot as plt
 
-tsv_file = 'images.tsv'
+url_file = 'image_urls.txt'
 output_dir = "downloaded_images"
 os.makedirs(output_dir, exist_ok=True)
 images = []
 
-with open(tsv_file, 'r') as f:
+with open(url_file, 'r') as f:
     for idx, line in enumerate(f.readlines(), start=1):
-        parts = line.strip().split('\t')
-        if parts:
-            url = parts[0]
-            filename = os.path.join(output_dir, f"image_{idx}.jpg")
-            try:
-                response = requests.get(url)
-                response.raise_for_status()
-                with open(filename, 'wb') as img_file:
-                    img_file.write(response.content)
-                images.append(filename)
-            except requests.RequestException as e:
-                print(f"Failed to download {url}: {e}")
+        url = line.strip()
+        filename = os.path.join(output_dir, f"image_{idx}.jpg")
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+            with open(filename, 'wb') as img_file:
+                img_file.write(response.content)
+            images.append(filename)
+        except requests.RequestException as e:
+            print(f"Failed to download {url}: {e}")
+
 
 font_size = 0.35
 thickness = 1
