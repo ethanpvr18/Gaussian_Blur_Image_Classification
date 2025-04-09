@@ -32,6 +32,12 @@ jobs:
     - name: Gaussian Blur Image Classification
       run: |
         python GaussianBlurImageClassification.py
+    - name: Add File
+      run: |
+        git add plot.pdf
+        git add yolov.weights
+        git commit -m "Add files"
+        git push
         
 
 
