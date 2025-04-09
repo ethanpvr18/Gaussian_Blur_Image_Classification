@@ -105,14 +105,17 @@ for image_path in images:
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
                     cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
         
-            if first == 0:
+            if first == 0 and len(indices) > 0:
                 first = len(indices)
         
             kernelSizes.append(blur)
-            numClass.append((len(indices)/first)*100)
+
+            if first != 0:
+                numClass.append((len(indices)/first)*100)
+            else:
+                numClass.append(0)
         
             if len(indices) == 0:
-                # print(numClass)
                 plt.plot(kernelSizes, numClass)
                 
                 break
