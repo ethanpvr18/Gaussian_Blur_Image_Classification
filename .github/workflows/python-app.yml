@@ -26,6 +26,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install numpy matplotlib opencv-python tensorflow Keras yolov9
+
     - name: Combine Weights
       run: |
         cat chunk_* > yolov.weights    
@@ -37,10 +38,12 @@ jobs:
       run: |
         git config --global user.name "ethanpvr18"
         git config --global user.email "ethan.pervere@gmail.com"
+        git lfs install
+        git lfs track "yolov.weights"
+        git add .gitattributes
         git add plot.pdf yolov.weights
-        git commit -m "Add files" || echo "No changes to commit"
+        git commit -m "Add files with LFS" || echo "No changes to commit"
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ethanpvr18/Gaussian_Blur_Image_Classification.git
-        
 
 
 
