@@ -4,18 +4,40 @@ import cv2 as cv
 import numpy as np
 import time
 import os
+import requests
 import matplotlib.pyplot as plt
+
+tsv_file = 'images.tsv'
+output_dir = "downloaded_images"
+os.makedirs(output_dir, exist_ok=True)
+images = []
+
+with open(tsv_file, 'r') as f:
+    for idx, line in enumerate(f.readlines(), start=1):
+        parts = line.strip().split('\t')
+        if parts:
+            url = parts[0]
+            filename = os.path.join(output_dir, f"image_{idx}.jpg")
+            try:
+                response = requests.get(url)
+                response.raise_for_status()
+                with open(filename, 'wb') as img_file:
+                    img_file.write(response.content)
+                images.append(filename)
+            except requests.RequestException as e:
+                print(f"Failed to download {url}: {e}")
 
 font_size = 0.35
 thickness = 1
-blur = 3
-counter = 0
-numClass = []
-first = 0
-kernelSizes = []
-images = ['city_street.jpg']
 
 for image_path in images:
+    
+    blur = 3
+    counter = 0
+    numClass = []
+    first = 0
+    kernelSizes = []
+    
     while True:
         # Load image
         if isinstance(image_path, str) and os.path.isfile(image_path):
