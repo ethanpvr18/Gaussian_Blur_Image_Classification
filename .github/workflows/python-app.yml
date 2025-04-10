@@ -43,7 +43,7 @@ jobs:
         git add .gitattributes
         git add plot.pdf
         git commit -m "Add files with LFS" || echo "No changes to commit"
-        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ethanpvr18/senior_research.git
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ethanpvr18/Gaussian_Blur_Image_Classification.git
 
 
 
