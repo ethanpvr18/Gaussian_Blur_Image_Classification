@@ -21,7 +21,7 @@ font_size = 0.35
 thickness = 1
 
 for image_path in images:
-    
+    print(str(counter)+" : "+str(image_path))
     blur = 3
     counter = 0
     numClass = []
