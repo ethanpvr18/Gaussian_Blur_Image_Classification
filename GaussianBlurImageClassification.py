@@ -15,7 +15,7 @@ images = []
 numImages = 0
 for filename in os.listdir(input_folder):
     if filename.endswith('.jpg'):
-        if numImages < 4:
+        if numImages < 1:
             image_path = os.path.join(input_folder, filename)
             images.append(image_path)
             numImages += 1
