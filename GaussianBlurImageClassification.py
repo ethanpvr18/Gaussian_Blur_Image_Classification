@@ -7,24 +7,15 @@ import os
 import requests
 import matplotlib.pyplot as plt
 
-url_file = 'image_urls.txt'
+input_folder = 'images'
 output_dir = "downloaded_images"
 os.makedirs(output_dir, exist_ok=True)
 images = []
 
-with open(url_file, 'r') as f:
-    for idx, line in enumerate(f.readlines(), start=1):
-        url = line.strip()
-        filename = os.path.join(output_dir, f"image_{idx}.jpg")
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            with open(filename, 'wb') as img_file:
-                img_file.write(response.content)
-            images.append(filename)
-        except requests.RequestException as e:
-            print(f"Failed to download {url}: {e}")
-
+for filename in os.listdir(input_folder):
+    if filename.endswith('.jpg'):
+        image_path = os.path.join(input_folder, filename)
+        images.append(image_path)
 
 font_size = 0.35
 thickness = 1
