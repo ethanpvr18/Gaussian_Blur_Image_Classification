@@ -7,96 +7,6 @@
     <list default="true" id="daee998a-c27f-46d6-89e4-ec5fd8e95d1d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GaussianBlurImageClassification.py" beforeDir="false" afterPath="$PROJECT_DIR$/GaussianBlurImageClassification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-akshay-mehra-10568782.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-aleks-magnusson-2907762.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-alexander-hamilton-9443581.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ali-dashti-16924358.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ali-pazani-2975612.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ali-pazani-3061814.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-alican-helik-18052763.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-alimurat-üral-16896947.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-alina-komarevska-15793245.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ana-ferreira-1895976.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-andrea-piacquadio-920381.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-andrea-piacquadio-920382.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ann-bugaichuk-16647799.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-antony-trivet-9878597.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-antony-trivet-9878632.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-antony-trivet-9878657.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-antony-trivet-9898246.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-antony-trivet-9981692 (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-antony-trivet-9981692.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-arina-shilyaeva-3048710.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-bhargava-marripati-3250510.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-brett-jordan-2643698.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-bruno-cervera-15488686.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-carrie-kin-2989700.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-cottonbro-studio-4065906.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-cottonbro-studio-5081418.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-david-kretschmann-8974252.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-deane-bayas-11960291.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-deepa-gopinath-6306534.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-edgar-santana-12831258.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-edward-eyer-2883067.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-engin-akyurt-3275945.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-erik-mclean-4674339.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-erik-mclean-4674344.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-fabian-rubilar-17995012.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-fatih-güney-16859810.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-files-1050327.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-frame-ofe-16619122.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-gantas-vaičiulėnas-3999536.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-garvin-st-villier-14277545.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-hemanth-k-m-11638635 (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-hemanth-k-m-11638635.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-himesh-mehta-3250348.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-husnu-karalar-16658649.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ion-ceban-ionelceban-2929835.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-irina-iriser-1647976.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-jacob-moore-11913339.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-jhonata-senna-2361663.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-joe-caltiere-10996872.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-karolina-grabowska-4195325.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-kaushal-moradiya-9417523.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-krivec-ales-552774.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ksenia-chernaya-7299850.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-lisa-fotios-1092644.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-luis-leon-2908870.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-luis-zambrano-17570081.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-lê-minh-3062594.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-m-u-h-t-e-l-i-f-13920353 (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-m-u-h-t-e-l-i-f-13920353.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-marc-mueller-238541.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-marlene-leppänen-13879526.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-marlene-leppänen-2066896.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-marlon-schmeiski-2883378.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-matheus-natan-1890032.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-matheus-natan-2869261.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-matheus-natan-2869262.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-mick-latter-12582201.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-milad-heran-4082552.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-miriam-alonso-7622520.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-mohammad-sattar-18339484.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-moy-caro-_-photographer-17218292.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-mudassir-ali-1657299.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-natalya-rostun-13002023 (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-natalya-rostun-13002023.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-natan-16463229.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-natan-16463245.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-ngân-phạm-17135719.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-nikolett-emmert-14440675.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-nothing-ahead-17988058.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-nothing-ahead-3049394.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-pawan-sable-12544682 (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-pawan-sable-12544682.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-philip-lindvall-1120275.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-photomix-company-887751.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-plann-4549416.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-polina-tankilevitch-4110156.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-pratik-prasad-14778525.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-quang-viet-nguyen-9561292.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-quang-viet-nguyen-9561299.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pexels-radwan-menzer-17747031.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +57,7 @@
       <workItem from="1744288532209" duration="5452000" />
       <workItem from="1744682129757" duration="79000" />
       <workItem from="1744682233287" duration="271000" />
+      <workItem from="1744682711213" duration="30000" />
     </task>
     <servers />
   </component>
