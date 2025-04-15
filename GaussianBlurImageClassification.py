@@ -117,7 +117,7 @@ for image_path in images:
             blur += 2
             counter += 1
             
-    plt.xlabel("Kernel Size of Gaussian Blur")
-    plt.ylabel("Percent of Objects Classified")
-    plt.title("Impact of Gaussian Blur on Image Classification")
-    plt.savefig(f'plot.pdf')
+plt.xlabel("Kernel Size of Gaussian Blur")
+plt.ylabel("Percent of Objects Classified")
+plt.title("Impact of Gaussian Blur on Image Classification")
+plt.savefig(f'plot.pdf')
