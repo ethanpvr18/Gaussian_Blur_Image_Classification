@@ -111,7 +111,8 @@ for image_path in images:
         
             if len(indices) == 0:
                 plt.plot(kernelSizes, numClass)
-                
+                if numClass > 100:
+                    plt.savefig(f'plot_{numClass}.pdf')
                 break
         
             blur += 2
