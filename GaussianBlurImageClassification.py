@@ -4,7 +4,7 @@ import cv2 as cv
 import numpy as np
 import time
 import os
-import requests
+# import requests
 import matplotlib.pyplot as plt
 
 input_folder = 'images'
@@ -15,10 +15,9 @@ images = []
 numImages = 0
 for filename in os.listdir(input_folder):
     if filename.endswith('.jpg'):
-        if numImages < 1:
-            image_path = os.path.join(input_folder, filename)
-            images.append(image_path)
-            numImages += 1
+        image_path = os.path.join(input_folder, filename)
+        images.append(image_path)
+        numImages += 1
 
 font_size = 0.35
 thickness = 1
