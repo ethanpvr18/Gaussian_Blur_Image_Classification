@@ -38,7 +38,7 @@ for image_path in images:
             modified = cv.GaussianBlur(img, (blur,blur), 0)
     
             # Load YOLO model
-            net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
+            net = cv.dnn.readNetFromDarknet('yolov.cfg', 'yolov.weights')
             net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
     
             # Get output layer names
