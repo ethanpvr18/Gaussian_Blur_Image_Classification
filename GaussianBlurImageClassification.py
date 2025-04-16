@@ -110,7 +110,7 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(kernelSizes, numClass)
+                plt.plot(kernelSizes, numClass, label=f'{image_path}')
                 if ((len(indices)/first)*100) > 100:
                     plt.savefig(f'plot_{((len(indices)/first)*100)}.pdf')
                 break
@@ -120,5 +120,7 @@ for image_path in images:
             
 plt.xlabel("Kernel Size of Gaussian Blur")
 plt.ylabel("Percent of Objects Classified")
+plt.legend()
+plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification")
 plt.savefig(f'plot.pdf')
