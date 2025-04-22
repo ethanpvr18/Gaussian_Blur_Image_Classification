@@ -12,7 +12,7 @@ Computer Vision is a discipline of Computer Science which allows media to proces
 ***The Kernel Size of Gaussian Blur on Image Classification:***\
 ![image](https://github.com/user-attachments/assets/3a942e40-d72f-4943-8710-1a6eedb36191)
 
-***Bibliography***\
+***Bibliography***
 
 [1] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look Once: Unified, Real-Time Object Detection,” May 09, 2016, arXiv: arXiv:1506.02640. doi: 10.48550/arXiv.1506.02640.
 
