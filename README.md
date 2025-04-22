@@ -14,13 +14,13 @@ Computer Vision is a discipline of Computer Science which allows media to proces
 
 ***Bibliography***\
 
-[1] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look Once: Unified, Real-Time Object Detection,” May 09, 2016, arXiv: arXiv:1506.02640. doi: 10.48550/arXiv.1506.02640.\
+[1] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look Once: Unified, Real-Time Object Detection,” May 09, 2016, arXiv: arXiv:1506.02640. doi: 10.48550/arXiv.1506.02640.
 
-[2] “YOLO - object detection — OpenCV tutorial 2019 documentation.” Accessed: Apr. 22, 2025. [Online]. Available: https://opencv-tutorial.readthedocs.io/en/latest/yolo/yolo.html\
+[2] “YOLO - object detection — OpenCV tutorial 2019 documentation.” Accessed: Apr. 22, 2025. [Online]. Available: https://opencv-tutorial.readthedocs.io/en/latest/yolo/yolo.html
 
-[3] “OpenCV: Smoothing Images.” Accessed: Apr. 16, 2025. [Online]. Available: https://docs.opencv.org/3.4/d4/d13/tutorial_py_filtering.html\
+[3] “OpenCV: Smoothing Images.” Accessed: Apr. 16, 2025. [Online]. Available: https://docs.opencv.org/3.4/d4/d13/tutorial_py_filtering.html
 
-[4] Z. Zhou et al., “Improving Object Detecting by Structuring and Training YOLO Model,” in Proceedings of the 5th International Conference on Computer Information and Big Data Applications, in CIBDA ’24. New York, NY, USA: Association for Computing Machinery, Jul. 2024, pp. 659–664. doi: 10.1145/3671151.3671268.\
+[4] Z. Zhou et al., “Improving Object Detecting by Structuring and Training YOLO Model,” in Proceedings of the 5th International Conference on Computer Information and Big Data Applications, in CIBDA ’24. New York, NY, USA: Association for Computing Machinery, Jul. 2024, pp. 659–664. doi: 10.1145/3671151.3671268.
 
-[5] R. Szeliski, Computer Vision: Algorithms and Applications. Springer Nature, 2022.\
+[5] R. Szeliski, Computer Vision: Algorithms and Applications. Springer Nature, 2022.
 
