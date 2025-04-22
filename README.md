@@ -24,3 +24,6 @@ Computer Vision is a discipline of Computer Science which allows media to proces
 
 [5] R. Szeliski, Computer Vision: Algorithms and Applications. Springer Nature, 2022.
 
+[6] “4,159,870 People Walking Stock Photos, High-Res Pictures, and Images - Getty Images.” Accessed: Apr. 22, 2025. [Online]. Available: https://www.gettyimages.com/photos/people-walking
+
+
