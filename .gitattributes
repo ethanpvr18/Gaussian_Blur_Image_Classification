@@ -3,3 +3,4 @@
 yolov.weights filter=lfs diff=lfs merge=lfs -text
 plot.pdf filter=lfs diff=lfs merge=lfs -text
 images filter=lfs diff=lfs merge=lfs -text
+plot_confidences.pdf filter=lfs diff=lfs merge=lfs -text
