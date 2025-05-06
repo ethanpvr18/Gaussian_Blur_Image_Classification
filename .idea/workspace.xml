@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daee998a-c27f-46d6-89e4-ec5fd8e95d1d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GaussianBlurImageClassification.py" beforeDir="false" afterPath="$PROJECT_DIR$/GaussianBlurImageClassification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GaussianBlurImageClassification_confidences.py" beforeDir="false" afterPath="$PROJECT_DIR$/GaussianBlurImageClassification_confidences.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +97,7 @@
       <workItem from="1746553141711" duration="24000" />
       <workItem from="1746553217402" duration="2000" />
       <workItem from="1746553220570" duration="106000" />
+      <workItem from="1746553645908" duration="28000" />
     </task>
     <servers />
   </component>
