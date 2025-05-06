@@ -34,6 +34,7 @@ jobs:
         wget https://github.com/pjreddie/darknet/blob/master/data/coco.names
     - name: Gaussian Blur Image Classification
       run: |
+        python GaussianBlurImageClassification_confidences.py
         python GaussianBlurImageClassification.py
     - name: Commit and Push Artifacts
       if: github.actor != 'github-actions[bot]'
@@ -41,7 +42,7 @@ jobs:
         git config --global user.name "ethanpvr18"
         git config --global user.email "ethan.pervere@gmail.com"
         git lfs install
-        git lfs track "plot.pdf"
+        git lfs track "plot.pdf" "plot_confidences.pdf"
         git add .gitattributes
         git add plot.pdf plot_confidences.pdf
         git commit -m "Add files with LFS" || echo "No changes to commit"
