@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="daee998a-c27f-46d6-89e4-ec5fd8e95d1d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GaussianBlurImageClassification.py" beforeDir="false" afterPath="$PROJECT_DIR$/GaussianBlurImageClassification.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +29,7 @@
     &quot;Python.GaussianBlurImageClassification.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ethanpervere/!ECSU/10-SPRING-2025/CSC-450-Senior-Research/Assignments/senior_research&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ethanpervere/ECSU/10-SPRING-2025/CSC-450-Senior-Research/Assignments/senior_research&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -37,6 +38,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="GaussianBlurImageClassification" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <option name="ENV_FILES" value="" />
@@ -46,8 +52,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (pythonProject)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
@@ -83,6 +90,10 @@
       <workItem from="1744682233287" duration="271000" />
       <workItem from="1744682711213" duration="30000" />
       <workItem from="1746497450742" duration="47000" />
+      <workItem from="1746497880384" duration="4084000" />
+      <workItem from="1746502420036" duration="31000" />
+      <workItem from="1746502453288" duration="255000" />
+      <workItem from="1746502710628" duration="16000" />
     </task>
     <servers />
   </component>

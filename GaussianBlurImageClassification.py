@@ -7,6 +7,7 @@ import os
 # import requests
 import matplotlib.pyplot as plt
 
+# Pull images to be tested
 input_folder = 'images'
 output_dir = "downloaded_images"
 os.makedirs(output_dir, exist_ok=True)
@@ -20,16 +21,18 @@ for filename in os.listdir(input_folder):
             images.append(image_path)
             numImages += 1
 
+
 font_size = 0.35
 thickness = 1
 
 for image_path in images:
     print(image_path)
-    blur = 3
+    blur = 3    # Kernal Size
     counter = 0
     numClass = []
     first = 0
     kernelSizes = []
+    objectConfidences = []
     
     while True:
         # Load image
@@ -67,6 +70,9 @@ for image_path in images:
             boxes = []
             confidences = []
             class_ids = []
+
+            allConfidences = []
+            avgConfidencesPerBlur = 0
     
             h, w = modified.shape[:2]
             for output in outputs:
@@ -74,6 +80,8 @@ for image_path in images:
                     scores = detection[5:]
                     class_id = np.argmax(scores)
                     confidence = scores[class_id]
+
+                    avgConfidencesPerBlur += confidence
         
                     if confidence > 0.5:  # Confidence threshold
                         box = detection[0:4] * np.array([w, h, w, h])
@@ -85,7 +93,10 @@ for image_path in images:
                         boxes.append([x, y, int(width), int(height)])
                         confidences.append(float(confidence))
                         class_ids.append(class_id)
-        
+
+            avgConfidencesPerBlur = avgConfidencesPerBlur / (len(output)*len(outputs))
+            allConfidences.append(avgConfidencesPerBlur)
+
             # Apply Non-Maximum Suppression (NMS)
             indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
         
@@ -101,7 +112,8 @@ for image_path in images:
         
             if first == 0 and len(indices) > 0:
                 first = len(indices)
-        
+
+
             kernelSizes.append(blur)
 
             if first != 0:
@@ -110,17 +122,25 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(kernelSizes, numClass, label=f'{image_path}')
-                if ((len(indices)/first)*100) > 100:
-                    plt.savefig(f'plot_{((len(indices)/first)*100)}.pdf')
+                # plt.plot(kernelSizes, numClass, label=f'{image_path}')
+                plt.plot(kernelSizes, allConfidences)
+                # if ((len(indices)/first)*100) > 100:
+                #     plt.savefig(f'plot_{((len(indices)/first)*100)}.pdf')
                 break
         
             blur += 2
             counter += 1
             
 plt.xlabel("Kernel Size of Gaussian Blur")
-plt.ylabel("Percent of Objects Classified")
+
+# plt.ylabel("Percent of Objects Classified")
+# plt.legend()
+# plt.grid(axis='both', which='minor')
+# plt.title("Impact of Gaussian Blur on Image Classification")
+# plt.savefig(f'plot_classification.pdf')
+
+plt.ylabel("Confidence Level")
 plt.legend()
 plt.grid(axis='both', which='minor')
-plt.title("Impact of Gaussian Blur on Image Classification")
-plt.savefig(f'plot.pdf')
+plt.title("Impact of Gaussian Blur on Image Classification Confidence")
+plt.savefig(f'plot_confidences.pdf')
