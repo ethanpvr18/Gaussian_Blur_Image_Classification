@@ -6,6 +6,7 @@ import time
 import os
 # import requests
 import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt2
 
 # Pull images to be tested
 input_folder = 'images'
@@ -122,23 +123,22 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                # plt.plot(kernelSizes, numClass, label=f'{image_path}')
+                plt2.plot(kernelSizes, numClass, label=f'{image_path}')
                 plt.plot(kernelSizes, allConfidences)
-                # if ((len(indices)/first)*100) > 100:
-                #     plt.savefig(f'plot_{((len(indices)/first)*100)}.pdf')
                 break
         
             blur += 2
             counter += 1
             
+
+plt2.xlabel("Kernel Size of Gaussian Blur")
+plt2.ylabel("Percent of Objects Classified")
+plt2.legend()
+plt2.grid(axis='both', which='minor')
+plt2.title("Impact of Gaussian Blur on Image Classification")
+plt2.savefig(f'plot_classification.pdf')
+
 plt.xlabel("Kernel Size of Gaussian Blur")
-
-# plt.ylabel("Percent of Objects Classified")
-# plt.legend()
-# plt.grid(axis='both', which='minor')
-# plt.title("Impact of Gaussian Blur on Image Classification")
-# plt.savefig(f'plot_classification.pdf')
-
 plt.ylabel("Confidence Level")
 plt.legend()
 plt.grid(axis='both', which='minor')
