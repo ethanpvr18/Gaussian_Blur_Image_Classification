@@ -33,6 +33,7 @@ for image_path in images:
     first = 0
     kernelSizes = []
     objectConfidences = []
+    allConfidences = []
     
     while True:
         # Load image
@@ -71,7 +72,6 @@ for image_path in images:
             confidences = []
             class_ids = []
 
-            allConfidences = []
             avgConfidencesPerBlur = 0
     
             h, w = modified.shape[:2]
