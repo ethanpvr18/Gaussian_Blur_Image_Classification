@@ -130,7 +130,7 @@ for image_path in images:
 
 plt.xlabel("Kernel Size of Gaussian Blur")
 plt.ylabel("Percent of Objects Classified")
-plt.legend()
+plt.legend(loc='upper left')
 plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification")
 plt.savefig(f'plot.pdf')
