@@ -121,7 +121,7 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(kernelSizes, allConfidences)
+                plt.plot(kernelSizes, allConfidences, label=f'{image_path}')
                 break
         
             blur += 2
