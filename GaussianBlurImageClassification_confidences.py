@@ -60,7 +60,7 @@ for image_path in images:
             # Perform forward pass
             net.setInput(blob)
             t0 = time.time()
-            print("Pass "+i+"\n")
+            print("Pass "+str(i)+"\n")
             outputs = net.forward(ln)
             t = time.time()
         
@@ -78,7 +78,7 @@ for image_path in images:
             h, w = modified.shape[:2]
             for output in outputs:
                 for detection in output:
-                    print(output+"\n")
+                    print(str(output)+"\n")
                     scores = detection[5:]
                     class_id = np.argmax(scores)
                     confidence = scores[class_id]
