@@ -25,7 +25,6 @@ font_size = 0.35
 thickness = 1
 
 for image_path in images:
-    print(image_path)
     blur = 3    # Kernal Size
     counter = 0
     numClass = []
