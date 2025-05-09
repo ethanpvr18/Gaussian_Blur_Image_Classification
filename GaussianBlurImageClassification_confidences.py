@@ -20,11 +20,18 @@ for filename in os.listdir(input_folder):
             images.append(image_path)
             numImages += 1
 
+
+font_size = 0.35
+thickness = 1
+
 for image_path in images:
+    print(image_path)
     blur = 3    # Kernal Size
+    counter = 0
     numClass = []
     first = 0
     kernelSizes = []
+    objectConfidences = []
     allConfidences = []
     
     while True:
@@ -54,21 +61,53 @@ for image_path in images:
             t0 = time.time()
             outputs = net.forward(ln)
             t = time.time()
+        
+            # Display processing time on the image using putText
+            processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
+            cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
+        
+            # Extract bounding boxes, class IDs, and confidence scores
+            boxes = []
+            confidences = []
+            class_ids = []
 
             avgConfidencesPerBlur = 0
     
+            h, w = modified.shape[:2]
             for output in outputs:
-                count = 0
                 for detection in output:
                     scores = detection[5:]
                     class_id = np.argmax(scores)
                     confidence = scores[class_id]
 
                     avgConfidencesPerBlur += confidence
-                    count += 1
         
-                avgConfidencesPerBlur = avgConfidencesPerBlur/count
-                allConfidences.append(avgConfidencesPerBlur)
+                    if confidence > 0.5:  # Confidence threshold
+                        box = detection[0:4] * np.array([w, h, w, h])
+                        (center_x, center_y, width, height) = box.astype("int")
+        
+                        x = int(center_x - width / 2)
+                        y = int(center_y - height / 2)
+        
+                        boxes.append([x, y, int(width), int(height)])
+                        confidences.append(float(confidence))
+                        class_ids.append(class_id)
+
+            avgConfidencesPerBlur = avgConfidencesPerBlur/len(output)
+            allConfidences.append(avgConfidencesPerBlur)
+
+            # Apply Non-Maximum Suppression (NMS)
+            indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
+        
+            # Draw bounding boxes and labels
+            if len(indices) > 0:
+                for i in indices.flatten():
+                    x, y, w, h = boxes[i]
+                    label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
+                    color = (0, 255, 0)
+        
+                    cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
+                    cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
         
             if first == 0 and len(indices) > 0:
                 first = len(indices)
@@ -81,14 +120,16 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(kernelSizes, allConfidences, label=f'{image_path}')
+                plt.plot(kernelSizes, allConfidences)
                 break
         
             blur += 2
+            counter += 1
+
 
 plt.xlabel("Kernel Size of Gaussian Blur")
 plt.ylabel("Confidence Level")
-plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.legend()
 plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification Confidence")
 plt.savefig(f'plot_confidences.pdf')
