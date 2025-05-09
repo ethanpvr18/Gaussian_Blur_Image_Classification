@@ -65,7 +65,7 @@ for image_path in images:
                     confidence = scores[class_id]
 
                     avgConfidencesPerBlur += confidence
-                    count++
+                    count += 1
         
                 avgConfidencesPerBlur = avgConfidencesPerBlur/count
                 allConfidences.append(avgConfidencesPerBlur)
