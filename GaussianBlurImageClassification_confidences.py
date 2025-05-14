@@ -54,6 +54,11 @@ for image_path in images:
             # Create blob from image
             blob = cv.dnn.blobFromImage(modified, 1/255.0, (416, 416), swapRB=True, crop=False)
             r = blob[0, 0, :, :]
+
+            cv.imshow('blob', r)
+            text = f'Blob shape={blob.shape}'
+            cv.displayOverlay('blob', text)
+            cv.waitKey(1)
         
             # Perform forward pass
             net.setInput(blob)
@@ -91,6 +96,11 @@ for image_path in images:
                         boxes.append([x, y, int(width), int(height)])
                         confidences.append(float(confidence))
                         class_ids.append(class_id)
+
+            cv.displayOverlay('window', f'forward propagation time={t-t0}')
+            cv.imshow('window',  img)
+            cv.waitKey(0)
+            cv.destroyAllWindows()
 
             avgConfidencesPerBlur = avgConfidencesPerBlur/len(output)
             allConfidences.append(avgConfidencesPerBlur)
