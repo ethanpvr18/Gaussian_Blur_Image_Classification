@@ -37,6 +37,8 @@ for image_path in images:
         # Load image
         if isinstance(image_path, str) and os.path.isfile(image_path):
             img = cv.imread(image_path)
+            print(img)
+            print(image_path)
             modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
     
             # Load YOLO model
