@@ -11,6 +11,7 @@ Computer Vision is a discipline of Computer Science which allows media to proces
 \
 ***The Kernel Size of Gaussian Blur on Image Classification:***\
 ![image](https://github.com/user-attachments/assets/3a942e40-d72f-4943-8710-1a6eedb36191)
+![image](plot_confidences.pdf)
 
 ***Bibliography***
 
