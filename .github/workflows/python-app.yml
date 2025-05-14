@@ -31,8 +31,11 @@ jobs:
       run: |
         python GaussianBlurImageClassification_confidences.py
         python GaussianBlurImageClassification.py
-    - name: Instal YOLO v3 Model
-      run: | 
+    - name: Download YOLOv3 Weights and Config
+      run: |
+        wget https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg
+        wget https://data.pjreddie.com/files/yolov3.weights
+        wget https://github.com/pjreddie/darknet/blob/master/data/coco.names 
     - name: Commit and Push Artifacts
       if: github.actor != 'github-actions[bot]'
       run: |
