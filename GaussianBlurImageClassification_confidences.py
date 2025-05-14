@@ -37,12 +37,11 @@ for image_path in images:
         # Load image
         if isinstance(image_path, str) and os.path.isfile(image_path):
             img = cv.imread(image_path)
-            print(img)
             print(image_path)
             modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
     
             # Load YOLO model
-            net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
+            net = cv.dnn.readNetFromDarknet("yolov3.cfg", "yolov3.weights")
             net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
     
             # Get output layer names
@@ -50,7 +49,7 @@ for image_path in images:
             ln = net.getUnconnectedOutLayersNames()
     
             # Load COCO class labels
-            with open('coco.names', 'r') as f:
+            with open("coco.names", 'r') as f:
                 classes = f.read().strip().split('\n')
         
             # Create blob from image
