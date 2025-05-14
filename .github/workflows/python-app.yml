@@ -31,6 +31,8 @@ jobs:
       run: |
         python GaussianBlurImageClassification_confidences.py
         python GaussianBlurImageClassification.py
+    - name: Instal YOLO v3 Model
+      run: | 
     - name: Commit and Push Artifacts
       if: github.actor != 'github-actions[bot]'
       run: |
