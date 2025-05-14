@@ -25,7 +25,7 @@ font_size = 0.35
 thickness = 1
 
 for image_path in images:
-    blur = 3    # Kernal Size
+    gaussianBlurKernel = 1    # Kernal Size
     counter = 0
     numClass = []
     first = 0
@@ -37,7 +37,7 @@ for image_path in images:
         # Load image
         if isinstance(image_path, str) and os.path.isfile(image_path):
             img = cv.imread(image_path)
-            modified = cv.GaussianBlur(img, (blur,blur), 0)
+            modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
     
             # Load YOLO model
             net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
@@ -111,7 +111,7 @@ for image_path in images:
             if first == 0 and len(indices) > 0:
                 first = len(indices)
 
-            kernelSizes.append(blur)
+            kernelSizes.append(gaussianBlurKernel)
 
             if first != 0:
                 numClass.append((len(indices)/first)*100)
@@ -122,7 +122,7 @@ for image_path in images:
                 plt.plot(kernelSizes, allConfidences)
                 break
         
-            blur += 2
+            gaussianBlurKernel += 2
             counter += 1
 
 
