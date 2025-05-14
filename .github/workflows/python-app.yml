@@ -27,11 +27,6 @@ jobs:
       run: |
         git pull https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ethanpvr18/senior_research.git
         python -m pip install numpy matplotlib opencv-python tensorflow Keras
-    - name: Download YOLOv3 Weights and Config
-      run: |
-        wget https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg
-        wget https://data.pjreddie.com/files/yolov3.weights
-        wget https://github.com/pjreddie/darknet/blob/master/data/coco.names
     - name: Gaussian Blur Image Classification
       run: |
         python GaussianBlurImageClassification_confidences.py
@@ -42,8 +37,8 @@ jobs:
         git config --global user.name "ethanpvr18"
         git config --global user.email "ethan.pervere@gmail.com"
         git lfs install
-        git lfs track "plot.pdf" "plot_confidences.pdf" "yolov3.cfg" "yolov3.weights" "coco.names"
-        git add plot.pdf plot_confidences.pdf yolov3.cfg yolov3.weights coco.names .gitattributes
+        git lfs track "plot.pdf" "plot_confidences.pdf"
+        git add plot.pdf plot_confidences.pdf .gitattributes
         git commit -m "Add files with LFS" || echo "No changes to commit"
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ethanpvr18/senior_research.git
 
