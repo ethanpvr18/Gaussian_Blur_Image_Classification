@@ -40,102 +40,100 @@ for image_path in images:
             modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
     
             # Load YOLO model
-            with open("yolov3.cfg", "r") as yolov3_cfg:
-                with open("yolov3.weights", "r") as yolov3_weights:
-                    net = cv.dnn.readNetFromDarknet(yolov3_cfg, yolov3_weights)
-                    net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+            net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
+            net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+
+            # Get output layer names
+            layer_names = net.getLayerNames()
+            ln = net.getUnconnectedOutLayersNames()
     
-                    # Get output layer names
-                    layer_names = net.getLayerNames()
-                    ln = net.getUnconnectedOutLayersNames()
-            
-                    # Load COCO class labels
-                    with open('coco.names', 'r') as f:
-                        classes = f.read().strip().split('\n')
-                
-                    # Create blob from image
-                    blob = cv.dnn.blobFromImage(modified, 1/255.0, (416, 416), swapRB=True, crop=False)
-                    r = blob[0, 0, :, :]
+            # Load COCO class labels
+            with open('coco.names', 'r') as f:
+                classes = f.read().strip().split('\n')
         
-                    cv.imshow('blob', r)
-                    text = f'Blob shape={blob.shape}'
-                    cv.displayOverlay('blob', text)
-                    cv.waitKey(1)
-                
-                    # Perform forward pass
-                    net.setInput(blob)
-                    t0 = time.time()
-                    outputs = net.forward(ln)
-                    t = time.time()
-                
-                    # Display processing time on the image using putText
-                    processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
-                    cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
-                
-                    # Extract bounding boxes, class IDs, and confidence scores
-                    boxes = []
-                    confidences = []
-                    class_ids = []
+            # Create blob from image
+            blob = cv.dnn.blobFromImage(modified, 1/255.0, (416, 416), swapRB=True, crop=False)
+            r = blob[0, 0, :, :]
+
+            cv.imshow('blob', r)
+            text = f'Blob shape={blob.shape}'
+            cv.displayOverlay('blob', text)
+            cv.waitKey(1)
         
-                    avgConfidencesPerBlur = 0
-            
-                    h, w = modified.shape[:2]
-                    for output in outputs:
-                        for detection in output:
-                            scores = detection[5:]
-                            class_id = np.argmax(scores)
-                            confidence = scores[class_id]
+            # Perform forward pass
+            net.setInput(blob)
+            t0 = time.time()
+            outputs = net.forward(ln)
+            t = time.time()
         
-                            avgConfidencesPerBlur += confidence
-                
-                            if confidence > 0.5:  # Confidence threshold
-                                box = detection[0:4] * np.array([w, h, w, h])
-                                (center_x, center_y, width, height) = box.astype("int")
-                
-                                x = int(center_x - width / 2)
-                                y = int(center_y - height / 2)
-                
-                                boxes.append([x, y, int(width), int(height)])
-                                confidences.append(float(confidence))
-                                class_ids.append(class_id)
+            # Display processing time on the image using putText
+            processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
+            cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
         
-                    cv.displayOverlay('window', f'forward propagation time={t-t0}')
-                    cv.imshow('window',  img)
-                    cv.waitKey(0)
-                    cv.destroyAllWindows()
+            # Extract bounding boxes, class IDs, and confidence scores
+            boxes = []
+            confidences = []
+            class_ids = []
+
+            avgConfidencesPerBlur = 0
+    
+            h, w = modified.shape[:2]
+            for output in outputs:
+                for detection in output:
+                    scores = detection[5:]
+                    class_id = np.argmax(scores)
+                    confidence = scores[class_id]
+
+                    avgConfidencesPerBlur += confidence
         
-                    avgConfidencesPerBlur = avgConfidencesPerBlur/len(output)
-                    allConfidences.append(avgConfidencesPerBlur)
+                    if confidence > 0.5:  # Confidence threshold
+                        box = detection[0:4] * np.array([w, h, w, h])
+                        (center_x, center_y, width, height) = box.astype("int")
         
-                    # Apply Non-Maximum Suppression (NMS)
-                    indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
-                
-                    # Draw bounding boxes and labels
-                    if len(indices) > 0:
-                        for i in indices.flatten():
-                            x, y, w, h = boxes[i]
-                            label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
-                            color = (0, 255, 0)
-                
-                            cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
-                            cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
-                
-                    if first == 0 and len(indices) > 0:
-                        first = len(indices)
+                        x = int(center_x - width / 2)
+                        y = int(center_y - height / 2)
         
-                    kernelSizes.append(gaussianBlurKernel)
+                        boxes.append([x, y, int(width), int(height)])
+                        confidences.append(float(confidence))
+                        class_ids.append(class_id)
+
+            cv.displayOverlay('window', f'forward propagation time={t-t0}')
+            cv.imshow('window',  img)
+            cv.waitKey(0)
+            cv.destroyAllWindows()
+
+            avgConfidencesPerBlur = avgConfidencesPerBlur/len(output)
+            allConfidences.append(avgConfidencesPerBlur)
+
+            # Apply Non-Maximum Suppression (NMS)
+            indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
         
-                    if first != 0:
-                        numClass.append((len(indices)/first)*100)
-                    else:
-                        numClass.append(0)
-                
-                    if len(indices) == 0:
-                        plt.plot(kernelSizes, allConfidences)
-                        break
-                
-                    gaussianBlurKernel += 2
-                    counter += 1
+            # Draw bounding boxes and labels
+            if len(indices) > 0:
+                for i in indices.flatten():
+                    x, y, w, h = boxes[i]
+                    label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
+                    color = (0, 255, 0)
+        
+                    cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
+                    cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
+        
+            if first == 0 and len(indices) > 0:
+                first = len(indices)
+
+            kernelSizes.append(gaussianBlurKernel)
+
+            if first != 0:
+                numClass.append((len(indices)/first)*100)
+            else:
+                numClass.append(0)
+        
+            if len(indices) == 0:
+                plt.plot(kernelSizes, allConfidences)
+                break
+        
+            gaussianBlurKernel += 2
+            counter += 1
 
 
 plt.xlabel("Kernel Size of Gaussian Blur")
