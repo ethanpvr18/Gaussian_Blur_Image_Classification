@@ -127,7 +127,7 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(allTimes, image_path, label=image_path)
+                plt.plot(allTimes, str(image_path), label=str(image_path))
                 break
         
             gaussianBlurKernel += 2
