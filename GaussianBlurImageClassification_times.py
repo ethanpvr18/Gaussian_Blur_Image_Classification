@@ -124,16 +124,16 @@ for image_path in images:
         
             if len(indices) == 0:
                 plt.table(cellText=allTimes, colLabels=["Image", "Processing Time"], rowLabels=[f"{images[i]}" for i in range(len(images))], loc='center')
-                plt.plot(kernelSizes, numClass, label=f'{image_path}')
+                # plt.plot(kernelSizes, numClass, label=f'{image_path}')
                 break
         
             gaussianBlurKernel += 2
             counter += 1
             
 
-plt.xlabel("Kernel Size of Gaussian Blur")
-plt.ylabel("Percent of Objects Classified")
-plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-plt.grid(axis='both', which='minor')
+# plt.xlabel("Kernel Size of Gaussian Blur")
+# plt.ylabel("Percent of Objects Classified")
+# plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+# plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification")
-plt.savefig(f'plot.pdf')
+plt.savefig(f'plot_times.pdf')
