@@ -116,7 +116,7 @@ for image_path in images:
                 numClass.append((len(indices)/first)*100)
                 kernelSizes.append(gaussianBlurKernel)
 
-            if len(indices) == 0 or gaussianBlurKernel > 100:
+            if len(indices) == 0 or gaussianBlurKernel > 1000:
                 numClass.append((len(indices)/first)*100)
                 kernelSizes.append(gaussianBlurKernel)
                 plt.plot(kernelSizes, numClass, label=f'{image_path}')
@@ -134,4 +134,4 @@ plt.ylabel("Percent of Objects Classified")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification")
-plt.savefig(f'plot.pdf')
+plt.savefig('plot.pdf')
