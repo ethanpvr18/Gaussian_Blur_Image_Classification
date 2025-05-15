@@ -73,7 +73,7 @@ for image_path in images:
             
             kernelSizes.append(gaussianBlurKernel)
         
-            if total_detections == 0 or gaussianBlurKernel > 1000:
+            if total_detections == 0 or gaussianBlurKernel > 200:
                 plt.plot(kernelSizes, allTimes, label=str(image_path))
                 break
         
