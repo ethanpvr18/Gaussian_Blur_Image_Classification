@@ -101,7 +101,8 @@ for image_path in images:
             if len(indices) > 0:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
-                    label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
+                    # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
+                    label=""
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
@@ -133,8 +134,8 @@ for image_path in images:
 
 plt.xlabel("Kernel Size of Gaussian Blur")
 plt.ylabel("Percent of Objects Classified")
-plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-plt.tight_layout()
+# plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+# plt.tight_layout()
 plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification")
 plt.savefig('plot.pdf')
