@@ -66,9 +66,9 @@ for image_path in images:
 
             kernelSizes.append(gaussianBlurKernel)
         
-            if len(indices) == 0:
+            if len(indices) == 0 or gaussianBlurKernel > 100:
                 # print(f'Image Path: {str(image_path)} : Time: {t - t0:.2f} sec')
-                plt.plot(allTimes, kernelSizes), label=str(image_path))
+                plt.plot(kernelSizes, allTimes), label=str(image_path))
                 break
         
             gaussianBlurKernel += 2
