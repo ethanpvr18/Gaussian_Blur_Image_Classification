@@ -114,7 +114,7 @@ for image_path in images:
 
             kernelSizes.append(gaussianBlurKernel)
 
-            if len(indices) == 0 or gaussianBlurKernel > 100:
+            if len(indices) == 0 or gaussianBlurKernel > 1000:
                 plt.plot(kernelSizes, allConfidences, label=image_path)
                 break
         
@@ -130,4 +130,4 @@ plt.ylabel("Confidence Level")
 plt.legend()
 plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification Confidence")
-plt.savefig(f'plot_confidences.pdf')
+plt.savefig('plot_confidences.pdf')
