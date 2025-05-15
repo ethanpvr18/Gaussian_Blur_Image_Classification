@@ -22,8 +22,20 @@ for filename in os.listdir(input_folder):
 font_size = 0.35
 thickness = 1
 
+# Load YOLO model
+net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+
+# Get output layer names
+layer_names = net.getLayerNames()
+ln = net.getUnconnectedOutLayersNames()
+
+# Load COCO class labels
+with open('coco.names', 'r') as f:
+    classes = f.read().strip().split('\n')
+                
 for image_path in images:
-    gaussianBlurKernel = 1    # Kernal Size
+    gaussianBlurKernel = 3    # Kernal Size
     counter = 0
     numClass = []
     first = 0
@@ -38,17 +50,7 @@ for image_path in images:
             img = cv.imread(image_path)
             modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
     
-            # Load YOLO model
-            net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
-            net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
-    
-            # Get output layer names
-            layer_names = net.getLayerNames()
-            ln = net.getUnconnectedOutLayersNames()
-    
-            # Load COCO class labels
-            with open('coco.names', 'r') as f:
-                classes = f.read().strip().split('\n')
+            
         
             # Create blob from image
             blob = cv.dnn.blobFromImage(modified, 1/255.0, (416, 416), swapRB=True, crop=False)
@@ -75,6 +77,7 @@ for image_path in images:
             avgConfidencesPerBlur = 0
     
             h, w = modified.shape[:2]
+            total_detections = 0
             for output in outputs:
                 for detection in output:
                     scores = detection[5:]
@@ -82,21 +85,25 @@ for image_path in images:
                     confidence = scores[class_id]
 
                     avgConfidencesPerBlur += confidence
+                    total_detections += 1
         
                     if confidence > 0.5:  # Confidence threshold
-                        box = detection[0:4] * np.array([w, h, w, h])
-                        (center_x, center_y, width, height) = box.astype("int")
+                    box = detection[0:4] * np.array([w, h, w, h])
+                    (center_x, center_y, width, height) = box.astype("int")
         
-                        x = int(center_x - width / 2)
-                        y = int(center_y - height / 2)
-        
-                        boxes.append([x, y, int(width), int(height)])
-                        confidences.append(float(confidence))
-                        class_ids.append(class_id)
+                    x = int(center_x - width / 2)
+                    y = int(center_y - height / 2)
+    
+                    boxes.append([x, y, int(width), int(height)])
+                    confidences.append(float(confidence))
+                    class_ids.append(class_id)
 
-            avgConfidencesPerBlur = avgConfidencesPerBlur / (len(output)*len(outputs))
-            allConfidences.append(avgConfidencesPerBlur)
-
+            if total_detections > 0:
+                avgConfidencesPerBlur /= total_detections
+                allConfidences.append(avgConfidencesPerBlur)
+            else:
+                avgConfidencesPerBlur = 0
+                
             # Apply Non-Maximum Suppression (NMS)
             indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
         
@@ -123,7 +130,7 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.table(cellText=allTimes, colLabels=["Image", "Processing Time"], rowLabels=[f"{images[i]}" for i in range(len(images))], loc='center')
+                plt.plot(allTimes, images, label=f"{i}" for i in images)
                 # plt.plot(kernelSizes, numClass, label=f'{image_path}')
                 break
         
