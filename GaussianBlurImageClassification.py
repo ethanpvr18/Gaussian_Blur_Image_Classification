@@ -63,7 +63,7 @@ for image_path in images:
         
             # Display processing time on the image using putText
             processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
-            # cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
+            cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
         
             # Extract bounding boxes, class IDs, and confidence scores
             boxes = []
@@ -101,12 +101,11 @@ for image_path in images:
             if len(indices) > 0:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
-                    # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
-                    label = ""
+                    label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
-                    # cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
+                    cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
 
             # Set original number of objects detected and Add to the list
             if first == 0 and len(indices) > 0:
@@ -125,10 +124,11 @@ for image_path in images:
                 break
         
             gaussianBlurKernel += 2
-            counter += 1
+    counter += 1
 
-    output_img_path = os.path.join(output_dir, f"blur_{gaussianBlurKernel}_{os.path.basename(image_path)}")
-    cv.imwrite(output_img_path, modified)
+    # output_img_path = os.path.join(output_dir, f"blur_{gaussianBlurKernel}_{os.path.basename(image_path)}")
+    
+    cv.imwrite('modified/{counter}.jpg', modified)
             
 
 plt.xlabel("Kernel Size of Gaussian Blur")
