@@ -22,8 +22,20 @@ for filename in os.listdir(input_folder):
 font_size = 0.35
 thickness = 1
 
+# Load YOLO model
+net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+
+# Get output layer names
+layer_names = net.getLayerNames()
+ln = net.getUnconnectedOutLayersNames()
+
+# Load COCO class labels
+with open('coco.names', 'r') as f:
+    classes = f.read().strip().split('\n')
+
 for image_path in images:
-    gaussianBlurKernel = 1    # Kernal Size
+    gaussianBlurKernel = 3    # Kernal Size
     counter = 0
     numClass = []
     first = 0
@@ -36,18 +48,6 @@ for image_path in images:
         if isinstance(image_path, str) and os.path.isfile(image_path):
             img = cv.imread(image_path)
             modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
-    
-            # Load YOLO model
-            net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
-            net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
-    
-            # Get output layer names
-            layer_names = net.getLayerNames()
-            ln = net.getUnconnectedOutLayersNames()
-    
-            # Load COCO class labels
-            with open('coco.names', 'r') as f:
-                classes = f.read().strip().split('\n')
         
             # Create blob from image
             blob = cv.dnn.blobFromImage(modified, 1/255.0, (416, 416), swapRB=True, crop=False)
@@ -123,6 +123,9 @@ for image_path in images:
         
             gaussianBlurKernel += 2
             counter += 1
+
+            if gaussianBlurKernel > 100:
+                break
             
 
 plt.xlabel("Kernel Size of Gaussian Blur")
