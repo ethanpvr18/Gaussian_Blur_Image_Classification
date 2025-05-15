@@ -105,27 +105,29 @@ for image_path in images:
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
                     # cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
-        
+
+            # Set original number of objects detected and Add to the list
             if first == 0 and len(indices) > 0:
                 first = len(indices)
-
-            kernelSizes.append(gaussianBlurKernel)
-
-            if first != 0:
                 numClass.append((len(indices)/first)*100)
-            else:
-                numClass.append(0)
-        
+                kernelSizes.append(gaussianBlurKernel)
+                
+            if first != 0 and len(indices) > 0:
+                numClass.append((len(indices)/first)*100)
+                kernelSizes.append(gaussianBlurKernel)
+
             if len(indices) == 0:
+                numClass.append((len(indices)/first)*100)
+                kernelSizes.append(gaussianBlurKernel)
                 plt.plot(kernelSizes, numClass, label=f'{image_path}')
+                break
+
+            if gaussianBlurKernel > 100:
                 break
         
             gaussianBlurKernel += 2
             counter += 1
 
-            if gaussianBlurKernel > 100:
-                break
-                
     output_img_path = os.path.join(output_dir, f"blur_{gaussianBlurKernel}_{os.path.basename(image_path)}")
     cv.imwrite(output_img_path, modified)
             
