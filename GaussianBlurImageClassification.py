@@ -35,7 +35,7 @@ with open('coco.names', 'r') as f:
     classes = f.read().strip().split('\n')
     
 for image_path in images:
-    gaussianBlurKernel = 3    # Kernal Size
+    gaussianBlurKernel = 1    # Kernal Size
     counter = 0
     first = 0
     kernelSizes = []
