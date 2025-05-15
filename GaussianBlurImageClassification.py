@@ -34,14 +34,15 @@ ln = net.getUnconnectedOutLayersNames()
 with open('coco.names', 'r') as f:
     classes = f.read().strip().split('\n')
 
+allConfidences = []
+numClass = []
+    
 for image_path in images:
     gaussianBlurKernel = 3    # Kernal Size
     counter = 0
-    numClass = []
     first = 0
     kernelSizes = []
     objectConfidences = []
-    allConfidences = []
     
     while True:
         # Load image
@@ -79,19 +80,18 @@ for image_path in images:
 
                     avgConfidencesPerBlur += confidence
         
-                    if confidence > 0.5:  # Confidence threshold
-                        box = detection[0:4] * np.array([w, h, w, h])
-                        (center_x, center_y, width, height) = box.astype("int")
-        
-                        x = int(center_x - width / 2)
-                        y = int(center_y - height / 2)
-        
-                        boxes.append([x, y, int(width), int(height)])
-                        confidences.append(float(confidence))
-                        class_ids.append(class_id)
+                    box = detection[0:4] * np.array([w, h, w, h])
+                    (center_x, center_y, width, height) = box.astype("int")
+    
+                    x = int(center_x - width / 2)
+                    y = int(center_y - height / 2)
+    
+                    boxes.append([x, y, int(width), int(height)])
+                    confidences.append(float(confidence))
+                    class_ids.append(class_id)
 
-            avgConfidencesPerBlur = avgConfidencesPerBlur / (len(output)*len(outputs))
-            allConfidences.append(avgConfidencesPerBlur)
+            # avgConfidencesPerBlur = avgConfidencesPerBlur / (len(output)*len(outputs))
+            # allConfidences.append(avgConfidencesPerBlur)
 
             # Apply Non-Maximum Suppression (NMS)
             indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
@@ -110,7 +110,6 @@ for image_path in images:
             if first == 0 and len(indices) > 0:
                 first = len(indices)
 
-
             kernelSizes.append(gaussianBlurKernel)
 
             if first != 0:
@@ -127,6 +126,7 @@ for image_path in images:
 
             if gaussianBlurKernel > 100:
                 break
+                
     output_img_path = os.path.join(output_dir, f"blur_{gaussianBlurKernel}_{os.path.basename(image_path)}")
     cv.imwrite(output_img_path, modified)
             
