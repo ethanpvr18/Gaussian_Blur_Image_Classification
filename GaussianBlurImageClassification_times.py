@@ -61,74 +61,14 @@ for image_path in images:
             t = time.time()
         
             # Display processing time on the image using putText
-            # processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
             processing_time_text = t - t0
             allTimes.append(processing_time_text)
 
-            # cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
-        
-            # Extract bounding boxes, class IDs, and confidence scores
-            boxes = []
-            confidences = []
-            class_ids = []
-
-            avgConfidencesPerBlur = 0
-    
-            h, w = modified.shape[:2]
-            total_detections = 0
-            for output in outputs:
-                for detection in output:
-                    scores = detection[5:]
-                    class_id = np.argmax(scores)
-                    confidence = scores[class_id]
-
-                    avgConfidencesPerBlur += confidence
-                    total_detections += 1
-        
-                    box = detection[0:4] * np.array([w, h, w, h])
-                    (center_x, center_y, width, height) = box.astype("int")
-        
-                    x = int(center_x - width / 2)
-                    y = int(center_y - height / 2)
-    
-                    boxes.append([x, y, int(width), int(height)])
-                    confidences.append(float(confidence))
-                    class_ids.append(class_id)
-
-            if total_detections > 0:
-                avgConfidencesPerBlur /= total_detections
-                allConfidences.append(avgConfidencesPerBlur)
-            else:
-                avgConfidencesPerBlur = 0
-                
-            # Apply Non-Maximum Suppression (NMS)
-            indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
-        
-            # Draw bounding boxes and labels
-            if len(indices) > 0:
-                for i in indices.flatten():
-                    x, y, w, h = boxes[i]
-                    # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
-                    label = ""
-                    color = (0, 255, 0)
-        
-                    cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
-                    # cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
-        
-            if first == 0 and len(indices) > 0:
-                first = len(indices)
-
-
             kernelSizes.append(gaussianBlurKernel)
-
-            if first != 0:
-                numClass.append((len(indices)/first)*100)
-            else:
-                numClass.append(0)
         
             if len(indices) == 0:
-                print(f'Image Path: {str(image_path)} : Time: {t - t0:.2f} sec')
-                # plt.plot(allTimes, str(image_path), label=str(image_path))
+                # print(f'Image Path: {str(image_path)} : Time: {t - t0:.2f} sec')
+                plt.plot(allTimes, kernelSizes), label=str(image_path))
                 break
         
             gaussianBlurKernel += 2
