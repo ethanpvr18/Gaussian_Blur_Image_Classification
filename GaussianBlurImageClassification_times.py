@@ -23,7 +23,6 @@ font_size = 0.35
 thickness = 1
 
 for image_path in images:
-    print(image_path)
     gaussianBlurKernel = 1    # Kernal Size
     counter = 0
     numClass = []
