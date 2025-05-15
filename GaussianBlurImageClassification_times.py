@@ -109,7 +109,7 @@ for image_path in images:
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
-                    cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
+                    # cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
         
             if first == 0 and len(indices) > 0:
                 first = len(indices)
