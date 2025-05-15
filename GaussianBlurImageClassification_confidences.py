@@ -116,7 +116,7 @@ for image_path in images:
 
             kernelSizes.append(gaussianBlurKernel)
 
-            if len(indices) == 0 or gaussianBlurKernel > 1000:
+            if len(indices) == 0 or gaussianBlurKernel > 200:
                 plt.plot(kernelSizes, allConfidences, label=image_path)
                 break
         
