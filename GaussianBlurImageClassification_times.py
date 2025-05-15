@@ -61,23 +61,23 @@ for image_path in images:
             t = time.time()
         
             # Display processing time on the image using putText
-            processing_time_text = t - t0
+            processing_time_text = t - t0:.2f
             allTimes.append(processing_time_text)
 
             kernelSizes.append(gaussianBlurKernel)
         
             if len(indices) == 0 or gaussianBlurKernel > 100:
                 # print(f'Image Path: {str(image_path)} : Time: {t - t0:.2f} sec')
-                plt.plot(kernelSizes, allTimes), label=str(image_path))
+                plt.plot(kernelSizes, allTimes, label=str(image_path))
                 break
         
             gaussianBlurKernel += 2
             counter += 1
             
 
-# plt.xlabel("Kernel Size of Gaussian Blur")
-# plt.ylabel("Percent of Objects Classified")
-# plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.xlabel("Kernel Size of Gaussian Blur")
+plt.ylabel("Time to Classify")
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 # plt.grid(axis='both', which='minor')
-# plt.title("Impact of Gaussian Blur on Image Classification")
-# plt.savefig(f'plot_times.pdf')
+plt.title("Impact of Gaussian Blur on Image Classification")
+plt.savefig(f'plot_times.pdf')
