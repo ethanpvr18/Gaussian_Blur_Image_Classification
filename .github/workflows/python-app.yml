@@ -35,6 +35,7 @@ jobs:
     - name: Gaussian Blur Image Classification
       run: |
         python GaussianBlurImageClassification_confidences.py
+        python GaussianBlurImageClassification_times.py
         python GaussianBlurImageClassification.py
     - name: Commit and Push Artifacts
       if: github.actor != 'github-actions[bot]'
