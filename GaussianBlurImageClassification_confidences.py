@@ -42,6 +42,8 @@ for image_path in images:
     kernelSizes = []
     objectConfidences = []
     allConfidences = []
+
+    print(f"Processing {image_path}_{gaussianBlurKernel} ...")
     
     while True:
         # Load image
