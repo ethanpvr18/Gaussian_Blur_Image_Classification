@@ -126,6 +126,8 @@ for image_path in images:
 
             if gaussianBlurKernel > 100:
                 break
+    output_img_path = os.path.join(output_dir, f"blur_{gaussianBlurKernel}_{os.path.basename(image_path)}")
+    cv.imwrite(output_img_path, modified)
             
 
 plt.xlabel("Kernel Size of Gaussian Blur")
