@@ -102,7 +102,8 @@ for image_path in images:
             if len(indices) > 0:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
-                    print(classes)
+                    print(classes[class_ids[i])
+                    print(confidences[i])
                     label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
                     color = (0, 255, 0)
         
