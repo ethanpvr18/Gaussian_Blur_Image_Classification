@@ -129,7 +129,7 @@ for image_path in images:
 
 plt.xlabel("Kernel Size of Gaussian Blur")
 plt.ylabel("Confidence Level")
-plt.legend()
-plt.grid(axis='both', which='minor')
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+plt.tight_layout()plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification Confidence")
 plt.savefig('plot_confidences.pdf')
