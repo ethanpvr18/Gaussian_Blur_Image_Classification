@@ -116,13 +116,10 @@ for image_path in images:
                 numClass.append((len(indices)/first)*100)
                 kernelSizes.append(gaussianBlurKernel)
 
-            if len(indices) == 0:
+            if len(indices) == 0 or gaussianBlurKernel > 100:
                 numClass.append((len(indices)/first)*100)
                 kernelSizes.append(gaussianBlurKernel)
                 plt.plot(kernelSizes, numClass, label=f'{image_path}')
-                break
-
-            if gaussianBlurKernel > 100:
                 break
         
             gaussianBlurKernel += 2
