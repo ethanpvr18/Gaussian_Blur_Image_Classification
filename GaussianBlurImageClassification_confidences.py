@@ -63,7 +63,7 @@ for image_path in images:
         
             # Display processing time on the image using putText
             processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
-            cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
+            # cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
         
             # Extract bounding boxes, class IDs, and confidence scores
             boxes = []
@@ -102,14 +102,14 @@ for image_path in images:
             if len(indices) > 0:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
-                    print(class_ids[i])
+                    # print(class_ids[i])
                     # print(confidences[i])
                     # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
                     label = f""
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
-                    cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
+                    # cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
         
             if first == 0 and len(indices) > 0:
                 first = len(indices)
