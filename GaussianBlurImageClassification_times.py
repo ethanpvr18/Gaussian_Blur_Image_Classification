@@ -127,7 +127,8 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(allTimes, str(image_path), label=str(image_path))
+                print(f'Image Path: {str(image_path)} : Time: {t - t0:.2f} sec')
+                # plt.plot(allTimes, str(image_path), label=str(image_path))
                 break
         
             gaussianBlurKernel += 2
@@ -138,5 +139,5 @@ for image_path in images:
 # plt.ylabel("Percent of Objects Classified")
 # plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 # plt.grid(axis='both', which='minor')
-plt.title("Impact of Gaussian Blur on Image Classification")
-plt.savefig(f'plot_times.pdf')
+# plt.title("Impact of Gaussian Blur on Image Classification")
+# plt.savefig(f'plot_times.pdf')
