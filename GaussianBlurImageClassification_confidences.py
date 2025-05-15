@@ -1,5 +1,3 @@
-from itertools import count
-
 import cv2 as cv
 import numpy as np
 import time
@@ -24,6 +22,18 @@ for filename in os.listdir(input_folder):
 font_size = 0.35
 thickness = 1
 
+# Load YOLO model
+net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+
+# Get output layer names
+layer_names = net.getLayerNames()
+ln = net.getUnconnectedOutLayersNames()
+
+# Load COCO class labels
+with open('coco.names', 'r') as f:
+    classes = f.read().strip().split('\n')
+
 for image_path in images:
     gaussianBlurKernel = 1    # Kernal Size
     counter = 0
@@ -38,18 +48,6 @@ for image_path in images:
         if isinstance(image_path, str) and os.path.isfile(image_path):
             img = cv.imread(image_path)
             modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
-    
-            # Load YOLO model
-            net = cv.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
-            net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
-
-            # Get output layer names
-            layer_names = net.getLayerNames()
-            ln = net.getUnconnectedOutLayersNames()
-    
-            # Load COCO class labels
-            with open('coco.names', 'r') as f:
-                classes = f.read().strip().split('\n')
         
             # Create blob from image
             blob = cv.dnn.blobFromImage(modified, 1/255.0, (416, 416), swapRB=True, crop=False)
@@ -81,18 +79,21 @@ for image_path in images:
 
                     avgConfidencesPerBlur += confidence
         
-                    if confidence > 0.5:  # Confidence threshold
-                        box = detection[0:4] * np.array([w, h, w, h])
-                        (center_x, center_y, width, height) = box.astype("int")
-        
-                        x = int(center_x - width / 2)
-                        y = int(center_y - height / 2)
-        
-                        boxes.append([x, y, int(width), int(height)])
-                        confidences.append(float(confidence))
-                        class_ids.append(class_id)
-
-            avgConfidencesPerBlur = avgConfidencesPerBlur/len(output)
+                    box = detection[0:4] * np.array([w, h, w, h])
+                    (center_x, center_y, width, height) = box.astype("int")
+    
+                    x = int(center_x - width / 2)
+                    y = int(center_y - height / 2)
+    
+                    boxes.append([x, y, int(width), int(height)])
+                    confidences.append(float(confidence))
+                    class_ids.append(class_id)
+            
+            if len(confidences) > 0:
+                avgConfidencesPerBlur = sum(confidences) / len(confidences)
+            else:
+                avgConfidencesPerBlur = 0
+                
             allConfidences.append(avgConfidencesPerBlur)
 
             # Apply Non-Maximum Suppression (NMS)
@@ -122,11 +123,17 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(kernelSizes, allConfidences)
+                plt.plot(kernelSizes, allConfidences, label=os.path.basename(image_path))
+                break
+
+            if gaussianBlurKernel > 100:
                 break
         
             gaussianBlurKernel += 2
             counter += 1
+            
+    output_path = os.path.join(output_dir, f"blurred_{os.path.basename(image_path)}")
+    cv.imwrite(output_path, modified)
 
 
 plt.xlabel("Kernel Size of Gaussian Blur")
