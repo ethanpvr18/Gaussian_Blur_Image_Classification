@@ -71,7 +71,7 @@ for image_path in images:
             
             kernelSizes.append(gaussianBlurKernel)
         
-            if total_detections == 0 or gaussianBlurKernel > 100:
+            if total_detections == 0 or gaussianBlurKernel > 1000:
                 plt.plot(kernelSizes, allTimes, label=str(image_path))
                 break
         
@@ -84,4 +84,4 @@ plt.ylabel("Time to Classify")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification")
-plt.savefig(f'plot_times.pdf')
+plt.savefig('plot_times.pdf')
