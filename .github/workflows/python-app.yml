@@ -43,8 +43,8 @@ jobs:
         git config --global user.name "ethanpvr18"
         git config --global user.email "ethan.pervere@gmail.com"
         git lfs install
-        git lfs track "plot.pdf" "plot_confidences.pdf" "plot_times.pdf" "1.jpg" "2.jpg" "3.jpg" "4.jpg"
-        git add plot.pdf plot_confidences.pdf plot_times.pdf .gitattributes 1.jpg 2.jpg 3.jpg 4.jpg
+        git lfs track "plot.pdf" "plot_confidences.pdf" "plot_times.pdf"
+        git add plot.pdf plot_confidences.pdf plot_times.pdf .gitattributes
         git commit -m "Add files with LFS" || echo "No changes to commit"
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ethanpvr18/senior_research.git
 
