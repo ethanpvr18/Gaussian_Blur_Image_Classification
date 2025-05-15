@@ -50,8 +50,6 @@ for image_path in images:
             img = cv.imread(image_path)
             modified = cv.GaussianBlur(img, (gaussianBlurKernel,gaussianBlurKernel), 0)
     
-            
-        
             # Create blob from image
             blob = cv.dnn.blobFromImage(modified, 1/255.0, (416, 416), swapRB=True, crop=False)
             r = blob[0, 0, :, :]
@@ -87,7 +85,6 @@ for image_path in images:
                     avgConfidencesPerBlur += confidence
                     total_detections += 1
         
-                    if confidence > 0.5:  # Confidence threshold
                     box = detection[0:4] * np.array([w, h, w, h])
                     (center_x, center_y, width, height) = box.astype("int")
         
@@ -130,8 +127,7 @@ for image_path in images:
                 numClass.append(0)
         
             if len(indices) == 0:
-                plt.plot(allTimes, images, label=f"{i}" for i in images)
-                # plt.plot(kernelSizes, numClass, label=f'{image_path}')
+                plt.plot(allTimes, image_path, label=image_path)
                 break
         
             gaussianBlurKernel += 2
