@@ -33,9 +33,6 @@ ln = net.getUnconnectedOutLayersNames()
 # Load COCO class labels
 with open('coco.names', 'r') as f:
     classes = f.read().strip().split('\n')
-
-allConfidences = []
-numClass = []
     
 for image_path in images:
     gaussianBlurKernel = 3    # Kernal Size
@@ -43,6 +40,8 @@ for image_path in images:
     first = 0
     kernelSizes = []
     objectConfidences = []
+    allConfidences = []
+    numClass = []
     
     while True:
         # Load image
