@@ -60,7 +60,7 @@ for image_path in images:
             t = time.time()
         
             # Display processing time on the image using putText
-            processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
+            # processing_time_text = f'Forward propagation time: {t - t0:.2f} sec'
             # cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
         
             # Extract bounding boxes, class IDs, and confidence scores
@@ -90,7 +90,7 @@ for image_path in images:
                     class_ids.append(class_id)
             
             if len(confidences) > 0:
-                avgConfidencesPerBlur = sum(confidences) / len(confidences)
+                avgConfidencesPerBlur /= len(confidences)
             else:
                 avgConfidencesPerBlur = 0
                 
@@ -111,22 +111,11 @@ for image_path in images:
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
                     # cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
-        
-            if first == 0 and len(indices) > 0:
-                first = len(indices)
 
             kernelSizes.append(gaussianBlurKernel)
 
-            if first != 0:
-                numClass.append((len(indices)/first)*100)
-            else:
-                numClass.append(0)
-        
-            if len(indices) == 0:
-                plt.plot(kernelSizes, allConfidences, label=os.path.basename(image_path))
-                break
-
-            if gaussianBlurKernel > 100:
+            if len(indices) == 0 or gaussianBlurKernel > 100:
+                plt.plot(kernelSizes, allConfidences, label=image_path)
                 break
         
             gaussianBlurKernel += 2
