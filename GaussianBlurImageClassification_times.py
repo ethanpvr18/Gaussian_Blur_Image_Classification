@@ -43,6 +43,8 @@ for image_path in images:
     objectConfidences = []
     allConfidences = []
     allTimes = []
+
+    print(f"Processing {image_path}_{gaussianBlurKernel} ...")
     
     while True:
         # Load image
