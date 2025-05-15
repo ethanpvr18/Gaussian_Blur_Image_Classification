@@ -66,7 +66,7 @@ for image_path in images:
             processing_time_text = t - t0
             allTimes.append(processing_time_text)
 
-            cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
+            # cv.putText(modified, processing_time_text, (15, 15), cv.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 255), thickness)
         
             # Extract bounding boxes, class IDs, and confidence scores
             boxes = []
