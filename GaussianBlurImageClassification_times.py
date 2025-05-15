@@ -35,7 +35,7 @@ with open('coco.names', 'r') as f:
     classes = f.read().strip().split('\n')
                 
 for image_path in images:
-    gaussianBlurKernel = 3    # Kernal Size
+    gaussianBlurKernel = 1    # Kernal Size
     counter = 0
     numClass = []
     first = 0
@@ -61,7 +61,7 @@ for image_path in images:
             t = time.time()
         
             # Display processing time on the image using putText
-            processing_time_text = t - t0:.2f
+            processing_time_text = t - t0
             allTimes.append(processing_time_text)
 
             kernelSizes.append(gaussianBlurKernel)
