@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 
 # Pull images to be tested
 input_folder = 'images'
-output_dir = "downloaded_images"
-os.makedirs(output_dir, exist_ok=True)
 images = []
-
 numImages = 0
+
+os.makedirs('modified', exist_ok=True)
+
 for filename in os.listdir(input_folder):
     if filename.endswith('.jpg'):
         if numImages < 5:
@@ -126,10 +126,8 @@ for image_path in images:
         
             gaussianBlurKernel += 2
     counter += 1
-
-    # output_img_path = os.path.join(output_dir, f"blur_{gaussianBlurKernel}_{os.path.basename(image_path)}")
     
-    cv.imwrite('modified/{counter}.jpg', modified)
+    cv.imwrite(f'modified/{counter}.jpg', modified)
             
 
 plt.xlabel("Kernel Size of Gaussian Blur")
