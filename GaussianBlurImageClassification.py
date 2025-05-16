@@ -103,12 +103,11 @@ for image_path in images:
             if len(indices) > 0:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
-                    # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
-                    label=""
+                    label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
-                    cv.putText(modified, label, (x, y - 15), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
+                    cv.putText(modified, label, (x, y - 5), cv.FONT_HERSHEY_SIMPLEX, font_size, color, thickness)
 
             # Set original number of objects detected and Add to the list
             if first == 0 and len(indices) > 0:
