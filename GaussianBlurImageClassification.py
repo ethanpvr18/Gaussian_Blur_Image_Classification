@@ -35,6 +35,8 @@ classes = []
 # Load COCO class labels
 with open('coco.names', 'r') as f:
     classes = f.read().strip().split('\n')
+print(f"Loaded {len(classes)} class labels.")
+
     
 for image_path in images:
     gaussianBlurKernel = 1    # Kernal Size
@@ -107,7 +109,6 @@ for image_path in images:
                     x, y, w, h = boxes[i]
                     # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
                     label = f"{class_ids[i]}: {confidences[i]:.2f}"
-                    print(classes)
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
