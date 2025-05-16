@@ -36,7 +36,7 @@ with open('coco.names', 'r') as f:
     
 for image_path in images:
     gaussianBlurKernel = 1    # Kernal Size
-    counter = 0
+    
     first = 0
     kernelSizes = []
     objectConfidences = []
@@ -44,6 +44,8 @@ for image_path in images:
     numClass = []
 
     print(f"Processing {image_path}_{gaussianBlurKernel} ...")
+    
+    counter = 0
     
     while True:
         # Load image
@@ -125,9 +127,9 @@ for image_path in images:
                 break
         
             gaussianBlurKernel += 2
-    counter += 1
-    
-    cv.imwrite(f'modified/{counter}.jpg', modified)
+        
+            cv.imwrite(f'modified/{counter}.jpg', modified)
+            counter += 1
             
 
 plt.xlabel("Kernel Size of Gaussian Blur")
