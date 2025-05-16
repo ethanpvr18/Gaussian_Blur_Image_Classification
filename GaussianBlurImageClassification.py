@@ -19,7 +19,7 @@ for filename in os.listdir(input_folder):
             numImages += 1
 
 
-font_size = 0.35
+font_size = 0.85
 thickness = 1
 
 # Load YOLO model
@@ -29,6 +29,8 @@ net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
 # Get output layer names
 layer_names = net.getLayerNames()
 ln = net.getUnconnectedOutLayersNames()
+
+classes = []
 
 # Load COCO class labels
 with open('coco.names', 'r') as f:
@@ -103,8 +105,8 @@ for image_path in images:
             if len(indices) > 0:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
-                    # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
-                    label = f"{confidences[i]:.2f}"
+                    label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
+                    # label = f"{confidences[i]:.2f}"
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
