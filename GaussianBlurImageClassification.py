@@ -19,7 +19,7 @@ for filename in os.listdir(input_folder):
             numImages += 1
 
 
-font_size = 0.85
+font_size = 0.65
 thickness = 1
 
 # Load YOLO model
@@ -106,8 +106,8 @@ for image_path in images:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
                     # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
-                    # label = f"{confidences[i]:.2f}"
-                    label = f"{class_ids[i]}"
+                    label = f"{class_ids[i]}: {confidences[i]:.2f}"
+                    print(classes)
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
