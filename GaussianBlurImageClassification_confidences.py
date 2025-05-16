@@ -123,8 +123,8 @@ for image_path in images:
             gaussianBlurKernel += 2
             counter += 1
             
-    output_path = os.path.join(output_dir, f"blurred_{os.path.basename(image_path)}")
-    cv.imwrite(output_path, modified)
+    # output_path = os.path.join(output_dir, f"blurred_{os.path.basename(image_path)}")
+    # cv.imwrite(output_path, modified)
 
 
 plt.xlabel("Kernel Size of Gaussian Blur")
