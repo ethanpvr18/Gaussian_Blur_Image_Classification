@@ -105,8 +105,9 @@ for image_path in images:
             if len(indices) > 0:
                 for i in indices.flatten():
                     x, y, w, h = boxes[i]
-                    label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
+                    # label = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
                     # label = f"{confidences[i]:.2f}"
+                    label = f"{class_ids[i]}"
                     color = (0, 255, 0)
         
                     cv.rectangle(modified, (x, y), (x + w, y + h), color, thickness)
