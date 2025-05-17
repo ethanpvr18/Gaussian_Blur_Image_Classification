@@ -4,6 +4,8 @@ import time
 import os
 import matplotlib.pyplot as plt
 
+plt.figure(figsize=(12, 6))
+
 # Pull images to be tested
 input_folder = 'images'
 images = []
