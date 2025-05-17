@@ -37,6 +37,9 @@ with open('coco.names', 'r') as f:
     classes = f.read().strip().split('\n')
 print(f"Loaded {len(classes)} class labels.")
 
+for class_label in classes:
+    print(f"{class_label}, \n")
+
     
 for image_path in images:
     gaussianBlurKernel = 1    # Kernal Size
