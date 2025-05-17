@@ -96,7 +96,7 @@ for image_path in images:
             else:
                 avgConfidencesPerBlur = 0
                 
-            allConfidences.append(avgConfidencesPerBlur)
+            allConfidences.append(avgConfidencesPerBlur*100)
 
             # Apply Non-Maximum Suppression (NMS)
             indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
