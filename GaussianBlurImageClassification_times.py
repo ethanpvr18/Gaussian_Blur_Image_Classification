@@ -83,6 +83,8 @@ for image_path in images:
 
 plt.xlabel("Kernel Size of Gaussian Blur")
 plt.ylabel("Time to Classify")
+plt.legend(loc='center left', bbox_to_anchor=(1.05, 0.5))
 plt.grid(axis='both', which='minor')
 plt.title("Impact of Gaussian Blur on Image Classification")
-plt.savefig('plot_times.pdf')
+plt.tight_layout()
+plt.savefig('plot_times.pdf', bbox_inches='tight')
