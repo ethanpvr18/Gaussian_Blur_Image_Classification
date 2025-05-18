@@ -137,7 +137,7 @@ for image_path in images:
         
             gaussianBlurKernel += 2
         
-            cv.imwrite(f'modified/{counter}.jpg', modified)
+            cv.imwrite(f'modified/{image_path[8:-4]}_{counter}.jpg', modified)
             counter += 1
             
 
