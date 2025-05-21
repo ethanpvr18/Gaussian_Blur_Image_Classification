@@ -9,16 +9,12 @@ plt.figure(figsize=(12, 6))
 # Pull images to be tested
 input_folder = 'images'
 images = []
-numImages = 0
 
 os.makedirs('modified', exist_ok=True)
 
 for filename in os.listdir(input_folder):
-    if filename.endswith('.jpg'):
-        if numImages < 5:
-            image_path = os.path.join(input_folder, filename)
-            images.append(image_path)
-            numImages += 1
+    image_path = os.path.join(input_folder, filename)
+    images.append(image_path)
 
 
 font_size = 0.65
