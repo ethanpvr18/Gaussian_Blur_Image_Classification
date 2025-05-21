@@ -12,14 +12,9 @@ output_dir = "downloaded_images"
 os.makedirs(output_dir, exist_ok=True)
 images = []
 
-numImages = 0
 for filename in os.listdir(input_folder):
-    if filename.endswith('.jpg'):
-        if numImages < 5:
-            image_path = os.path.join(input_folder, filename)
-            images.append(image_path)
-            numImages += 1
-
+    image_path = os.path.join(input_folder, filename)
+    images.append(image_path)
 
 font_size = 0.35
 thickness = 1
