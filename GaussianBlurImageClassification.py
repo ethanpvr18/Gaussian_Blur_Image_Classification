@@ -13,9 +13,9 @@ images = []
 os.makedirs('modified', exist_ok=True)
 
 for filename in os.listdir(input_folder):
-    image_path = os.path.join(input_folder, filename)
-    images.append(image_path)
-
+    if filename.endswith('.jpg') or filename.endswith('.jpeg'):
+        image_path = os.path.join(input_folder, filename)
+        images.append(image_path)
 
 font_size = 0.65
 thickness = 1
